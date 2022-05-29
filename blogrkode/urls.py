@@ -11,4 +11,4 @@ urlpatterns = [
     path('Project/<tipe>/<slug>',views.detail_Project,name='detail_Project'),
     # path('register/' , views.register_view , name="register_view"),
     # path('verify/<token>/' , views.verify , name="verify"),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
