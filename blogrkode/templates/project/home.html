@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!-- Start Shop Area -->
+    <section class="shopping-area gray-bg pt-50 pb-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 order-lg-2 mb-30">
+                   <div class="breadcrumb-wrapper mb-30">
+                        <nav>
+                            <ul class="breadcrumb">
+                                <li><a href="../"><i class="fas fa-home"></i> Home</a></li>
+                                <li class="active">PROGRAMING</li>
+                            </ul>
+                        </nav>
+                    </div>
+                    
+                    <div class="blog-area mb-30">
+                        {% for data in data.object_list  %}
+                        <div class="single-blog-area mb-30 wow fadeInLeft" data-wow-delay=".3s">
+                            <div class="bog-img">
+                                <a href="#"><img src="{{data.banner.url}}" alt=""></a>
+                            </div>
+                            <div class="blog-content">
+                                <div class="blog-heading">
+                                    <h6><a href="{% url 'detail_Programing' data.sub_category data.slug %}">{{data.title}}</a></h6>
+                                    <span class="blog-meta">{{data.created_at}}</span>
+                                </div>
+                                <p class="no-margin">{{data.content|safe|truncatewords:"30"|linebreaks}}<a href="{% url 'detail_Programing' data.sub_category data.slug %}"><span class=" btn btn-inline">Read More</span></a></p>
+                                <div class="posted-by">
+                                    <h6>Posted By: <span class="admin"><a href="#">{{data.created_by}}</a></span></h6>
+                                </div>                           
+                            </div>
+                        </div>
+                            
+                        {% endfor %}
+                        
+                        
+                    </div>
+                    {% if data.has_other_pages %}
+                        <div class="paginaton d-flex justify-content-between">
+                            <div class="patination-content">
+                                <ul class="pagination">
+                                    {% if data.has_previous %}
+                                         <li class="pagination-previous" id="pagination-previous-bottom">
+                                            <a href="?page={{ data.previous_page_number }}"><i class="fas fa-angle-double-left"></i></a>
+                                        </li>
+                                        
+                                    {% else %}
+                                        <li class="pagination-previous" id="pagination-previous-bottom">
+                                            <a href="#"><i class="fas fa-angle-double-left"></i></a>
+                                       
+                                    {% endif %}
+                                    {% for i in data.paginator.page_range %}
+                                      {% if data.number == i %}
+                                            <li class="active"><a href="#">{{ i }}</a></li>
+                                            
+                                      {% else %}
+                                            <li><a href="?page={{ i }}">{{ i }}</a></li>
+                                      {% endif %}
+                                    {% endfor %}
+                                    {% if data.has_next %}
+                                        <li class="pagination-next" id="pagination-next-bottom">
+                                            <a href="?page={{ data.next_page_number }}"><i class="fas fa-angle-double-right"></i></a>
+                                       
+                                    {% else %}
+                                        <li class="pagination-next" id="pagination-next-bottom">
+                                            <a href="#"><i class="fas fa-angle-double-right"></i></a>
+                                        </li>
+                                    {% endif %}
+                                    
+                                </ul>
+                            </div>
+                            <div class="show-item">
+                                <p class="no-margin">RKODE</p>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="col-lg-3">
+                    <!-- shopping area title -->
+                    <div class="sidebar-area-title mb-30">
+                            <a data-toggle="tooltip" title="RKODE" href="#"><img src="{% static 'assets/img/logo-footer.png'%}" alt=""></a>
+                    </div>
+                    <div class="shopping-left-side mb-30">
+                        <!-- category sidebar -->
+                        <div class="single-layout">
+                            <div class="layout-title">
+                                <h6>LIST PROJECT</h6>
+                            </div>
+                            <ul class="lay-out-list">
+                                
+                                {% for data in data.object_list  %}
+                                    <li><a href="{% url 'detail_Programing' data.sub_category data.slug %}"><i class="fas fa-angle-double-right"></i>{{data.title}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                   
+                    <div class="banner-img mt-30 mb-30">
+                        <a href="#"><img src="{% static 'assets/img/banner/giphy_5.gif' %}" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- End Blog Area -->
+{% endblock content %}

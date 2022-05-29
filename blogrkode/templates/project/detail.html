@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+            <div class="row">
+                <div class="col-lg-9 order-lg-2 mb-30">
+                   <!--<div class="breadcrumb-wrapper">
+                        <nav>
+                            <ul class="breadcrumb">
+                                <li><a href="../"><i class="fas fa-home"></i> Home</a></li>
+                                <li class="active">C PROGRAMING TUTORIAL</li>
+                            </ul>
+                        </nav>
+                    </div>
+                   --> 
+                    <!-- content 1 -->
+                    {% for data1 in data1  %}
+                    <div class="banner-img mt-30 mb-30">
+                        <a href="#"><img src="{{data1.banner.url}}" alt=""></a>
+                    </div>
+                    <h1>{{data1.title}}</h1>
+                    <div>
+                        {{data1.content | safe}}
+                    </div>
+                    
+                    {% endfor %}
+                    <br>
+                    <!--<h1>JUDUL TEMA</h1>
+                   <div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                       quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                       consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                       cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                       proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                   </div>
+                   <blockquote>
+                        <pre>
+                            <code>
+                                My pre-formatted "quoted" code here.
+                            </code>
+                        </pre>
+                    </blockquote>
+                   <!-- content 1 -->
+                   
+
+
+                    <!--<div class="paginaton d-flex justify-content-between">
+                        <div class="patination-content">
+                            <ul class="pagination">
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li class="pagination-next" id="pagination-next-bottom">
+                                    <a href="#"><i class="fas fa-angle-double-right"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="show-item">
+                            <p class="no-margin">Showing 1 - 10 of 10 items</p>
+                        </div>
+                    </div>-->
+                </div>
+                <div class="col-lg-3">
+                    <!-- shopping area title -->
+                    <div class="sidebar-area-title mb-30">
+                            <a data-toggle="tooltip" title="RKODE" href="#"><img src="{% static 'assets/img/logo-footer.png'%}" alt=""></a>
+                    </div>
+                    <div class="shopping-left-side mb-30">
+                        <!-- category sidebar -->
+                        
+                        <!-- manufacture -->
+                        <div class="single-layout">
+                            <div class="layout-title">
+                                {% for ttl in ttl  %}
+                                    <h6>{{ttl.title}}</h6>
+
+                                {% endfor %}
+                            </div>
+                            <ul class="lay-out-list">
+                                {% for data in data  %}
+                                    <li><a href="{% url 'detail_Programing' data.sub_category data.slug %}"><i class="fas fa-angle-double-right"></i>{{data.title}}</a></li>
+                                {% endfor %}
+                                
+                                
+                            </ul>
+                        </div>
+                        <!-- sidebar color -->
+                       
+                    </div>
+                    
+                    <div class="banner-img mt-30 mb-30">
+                        <a href="#"><img src="{% static 'assets/img/banner/giphy_5.gif' %}" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div></section>
+{% endblock content %}
