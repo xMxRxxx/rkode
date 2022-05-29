@@ -22,7 +22,6 @@ urlpatterns = [
     path('momonga-page/', admin.site.urls),
     path('', include('blogrkode.urls')),
     path('Programing/<tipe>',include('blogrkode.urls')),
-    
     path('Project/<tipe>',include('blogrkode.urls')),
     # path("register/", include('blogrkode.urls')),
     # path('verify/<token>/' ,include('blogrkode.urls')),
