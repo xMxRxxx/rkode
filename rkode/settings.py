@@ -25,14 +25,14 @@ SECRET_KEY = 'django-insecure-xzr)vk9btrlnk_i2yysfovu93a@!vy7x37&ezmde!(&m-_k832
 # SECURITY WARNING: don't run with debug turned on in production!
 
 # for deploy
-# DEBUG = False
+DEBUG = False
 
-# ALLOWED_HOSTS = ['52.37.163.99','rkode.tk','www.rcode.tk']
+ALLOWED_HOSTS = ['52.37.163.99','rkode.tk','www.rcode.tk']
 
 # for local 
-DEBUG = True
+# DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -128,13 +128,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 # for deploy
-# STATIC_ROOT = os.path.join(BASE_DIR, "static/")
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 # Extra places for collectstatic to find static files.
 # for local
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static'),
+# )
 
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
