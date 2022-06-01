@@ -1,6 +1,7 @@
 from django.db import models
 
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 from .helpers import *
 # Create your models here.
@@ -43,6 +44,9 @@ class BlogModel(models.Model):
     def save(self , *args, **kwargs): 
         self.slug = generate_slug(self.title)
         super(BlogModel, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return "/programing_sitemap/%s/" % self.slug
 
 class BlogImageModel(models.Model):
 	image = models.ImageField(upload_to='blog', default="", null=True , blank=True)

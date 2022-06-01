@@ -157,6 +157,14 @@ def detail_Project(request,tipe,slug):
 
 	except Exception as e:
 		return render(request, 'soon.html')
+
+def detail(request,id):
+
+	try:
+		data=BlogModel.objects.get(id=id)
+		return render(request, 'item.html',{'item':data})
+	except Exception as e:
+		return render(request, 'soon.html')
 	
 
 # def register_request(request):
